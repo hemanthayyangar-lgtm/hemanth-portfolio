@@ -106,10 +106,11 @@ export default function App() {
           <video
             ref={videoRef}
             className={`intro-video ${entered ? "visible" : ""}`}
-            src={`${import.meta.env.BASE_URL}videos/walk 2.mp4`}
+            src={`${import.meta.env.BASE_URL}videos/walk%202.mp4`}
             muted
             playsInline
-            preload="metadata"
+            webkit-playsinline="true"
+            preload="auto"
           />
 
           <audio
