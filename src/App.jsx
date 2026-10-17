@@ -33,7 +33,7 @@ export default function App() {
     if (!audio) return undefined;
 
     const handleTimeUpdate = () => {
-      if (audio.currentTime >= 10) {
+      if (audio.currentTime >= 14) {
         audio.pause();
         audio.currentTime = 0;
       }
@@ -69,7 +69,7 @@ export default function App() {
 
     if (video) {
       video.currentTime = 0;
-
+      video.playbackRate = 0.855;
       try {
         await video.play();
       } catch {
@@ -106,7 +106,7 @@ export default function App() {
           <video
             ref={videoRef}
             className={`intro-video ${entered ? "visible" : ""}`}
-            src={`${import.meta.env.BASE_URL}videos/into%201.mp4`}
+            src={`${import.meta.env.BASE_URL}videos/walk 1.mp4`}
             muted
             playsInline
             preload="metadata"
