@@ -114,7 +114,7 @@ export default function App() {
 
           <audio
             ref={audioRef}
-            src={`${import.meta.env.BASE_URL}audios/intro%20music%202.mp3`}
+            src={`${import.meta.env.BASE_URL}audios/into%20music%202.mp3`}
             preload="metadata"
           />
 
