@@ -106,16 +106,16 @@ export default function App() {
           <video
             ref={videoRef}
             className={`intro-video ${entered ? "visible" : ""}`}
-            src="/videos/into%201.mp4"
+            src={`${import.meta.env.BASE_URL}videos/into%201.mp4`}
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
           />
 
           <audio
             ref={audioRef}
-            src="/audios/intro%20music.mp3"
-            preload="auto"
+            src={`${import.meta.env.BASE_URL}audios/intro%20music%202.mp3`}
+            preload="metadata"
           />
 
           <div className="scanlines" />
