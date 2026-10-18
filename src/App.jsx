@@ -119,7 +119,11 @@ export default function App() {
             preload="metadata"
           />
 
-          <div className="scanlines" />
+          <div
+            className={`scanlines ${
+              entered && page === "intro" ? "hidden" : ""
+            }`}
+          />
 
           {!entered && (
             <section className="entry-screen">
@@ -161,7 +165,9 @@ export default function App() {
             <section className="welcome-content">
               <p className="eyebrow">WELCOME TO MY DIGITAL WORLD</p>
 
-              <h2>HEMANTH VENKATA AYYANGAR</h2>
+              <h2 className="golden-name">HEMANTH VENKATA AYYANGAR</h2>
+
+              <p className="signature-name">Hemanth Venkata Ayyangar</p>
 
               <p>Cybersecurity &amp; Cloud Security Enthusiast</p>
 

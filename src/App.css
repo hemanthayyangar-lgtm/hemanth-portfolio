@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
 /* =========================================
    GLOBAL THEME
 ========================================= */
@@ -185,6 +185,376 @@ a:focus-visible {
   line-height: 1.8;
 }
 
+/* FUTURISTIC WELCOME TEXT */
+.welcome-content .eyebrow {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(10px, 1.3vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  line-height: 1.8;
+  text-transform: uppercase;
+
+  color: #f5d77e;
+  text-shadow:
+    0 0 5px rgb(245 215 126 / 35%),
+    0 0 14px rgb(228 199 124 / 15%);
+
+  opacity: 0;
+  animation: welcomeTextReveal 1.2s ease-out 0.3s forwards;
+}
+
+@keyframes welcomeTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ===== CINEMATIC GOLDEN IDENTITY ===== */
+
+.golden-name {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin: 30px 0 22px;
+  padding-top: 16px;
+
+  font-size: clamp(1.8rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: clamp(1px, 0.35vw, 4px);
+  overflow-wrap: anywhere;
+
+  background: linear-gradient(
+    110deg,
+    #9c7528 0%,
+    #d9b65c 22%,
+    #fff5d6 42%,
+    #d6ad4f 52%,
+    #fff0b2 65%,
+    #a77b27 100%
+  );
+
+  background-size: 240% 100%;
+  background-position: 100% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 14px rgba(212, 168, 67, 0.12));
+
+  animation:
+    identityReveal 3.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both,
+    identityLightSweep 6s ease-in-out 3.8s infinite;
+}
+
+/* FUTURISTIC CYBERSECURITY NAME REVEAL */
+
+.welcome-content h2.golden-name {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding: 16px 0;
+  overflow-wrap: anywhere;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(22px, 4vw, 43px);
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  line-height: 1.35;
+
+  color: #f5d77e;
+
+  background-image:
+    radial-gradient(circle, #fff8d9 0 1px, transparent 1.8px),
+    radial-gradient(circle, #ffe8a0 0 1.2px, transparent 2px),
+    linear-gradient(
+      180deg,
+      #fff9df 0%,
+      #ffe9a3 25%,
+      #f2cc69 50%,
+      #e2b84f 75%,
+      #fff0b8 100%
+    );
+
+  background-size:
+    17px 19px,
+    23px 21px,
+    100% 100%;
+
+  background-position:
+    0 0,
+    10px 5px,
+    0 0;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 5px rgb(242 204 105 / 25%));
+
+  animation:
+    cyberNameAssemble 1.8s cubic-bezier(0.16, 1, 0.3, 1) both,
+    cyberGoldScan 5s ease-in-out 1.8s 1 both;
+}
+
+/* Moving digital particles around the lettering */
+.welcome-content h2.golden-name::after {
+  will-change: background-position, opacity;
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, #fff4be 0 1px, transparent 2px),
+    radial-gradient(circle, #d8ad45 0 1.5px, transparent 2.5px),
+    radial-gradient(circle, #fff 0 1px, transparent 2px);
+
+  background-size:
+    31px 27px,
+    43px 37px,
+    53px 41px;
+  background-position:
+    0 25px,
+    20px 0,
+    35px 15px;
+
+  opacity: 0;
+  mix-blend-mode: screen;
+  animation: cyberParticles 2.2s ease-out both;
+
+  /* ONE-TIME GOLD LASER SCAN */
+  .welcome-content h2.golden-name {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .welcome-content h2.golden-name::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: -35%;
+    width: 18%;
+    pointer-events: none;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 244 190 / 20%),
+      #fff6c9,
+      rgb(228 199 124 / 65%),
+      transparent
+    );
+
+    filter: blur(2px);
+    transform: skewX(-18deg);
+    animation: goldenLaserScan 1.15s ease-in-out 1.1s 1 both;
+  }
+
+  @keyframes goldenLaserScan {
+    0% {
+      left: -35%;
+      opacity: 0;
+    }
+
+    15% {
+      opacity: 1;
+    }
+
+    85% {
+      opacity: 0.9;
+    }
+
+    100% {
+      left: 125%;
+      opacity: 0;
+    }
+  }
+}
+
+/* Name assembles from a fragmented digital reveal */
+
+@keyframes cyberNameAssemble {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    filter: blur(3px);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translate3d(0, 2px, 0);
+    filter: blur(0.5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+/* Subtle gold scan after the initial reveal */
+@keyframes cyberGoldScan {
+  0%,
+  100% {
+    background-position:
+      0 0,
+      10px 5px,
+      100% 50%;
+  }
+
+  50% {
+    background-position:
+      0 0,
+      10px 5px,
+      0% 50%;
+  }
+}
+
+/* Gold particles drift and disappear */
+@keyframes cyberParticles {
+  0% {
+    opacity: 0;
+    background-position:
+      0 25px,
+      20px 35px,
+      35px 45px;
+  }
+
+  20% {
+    opacity: 0.65;
+  }
+
+  65% {
+    opacity: 0.4;
+    background-position:
+      15px 5px,
+      8px 10px,
+      20px 8px;
+  }
+
+  100% {
+    opacity: 0;
+    background-position:
+      30px -10px,
+      -5px -5px,
+      5px -15px;
+  }
+}
+
+/* Keep the name readable on small screens */
+@media (max-width: 600px) {
+  .welcome-content h2.golden-name {
+    letter-spacing: 0.025em;
+    font-size: clamp(20px, 6vw, 32px);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-content h2.golden-name,
+  .welcome-content h2.golden-name::after {
+    animation: none;
+    opacity: 1;
+    clip-path: none;
+    filter: none;
+  }
+}
+
+/* Refined subtitle */
+
+/* CYBERSECURITY ROLE TEXT */
+.welcome-content p:not(.eyebrow) {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(11px, 1.5vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+
+  color: #e7d6a5;
+  text-shadow: 0 0 8px rgb(228 199 124 / 18%);
+
+  opacity: 0;
+  animation: roleTextReveal 1.2s ease-out 0.7s forwards;
+}
+
+@keyframes roleTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes subtitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile refinement */
+@media (max-width: 600px) {
+  .golden-name {
+    letter-spacing: 1px;
+    margin: 24px 0 18px;
+  }
+
+  .welcome-content > p:not(.eyebrow) {
+    letter-spacing: 1px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .golden-name,
+  .golden-name::before,
+  .welcome-content > p:not(.eyebrow) {
+    animation: none;
+  }
+
+  .golden-name {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    background-position: 50% 50%;
+  }
+
+  .golden-name::before {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .welcome-content > p:not(.eyebrow) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 h1,
 h2 {
   font-family: "Orbitron", sans-serif;
@@ -310,7 +680,7 @@ h2 {
 }
 
 .intro-video.visible {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /* Keep welcome text above the video */
@@ -408,7 +778,7 @@ h2 {
 }
 
 .intro-video.visible {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .welcome-content {
@@ -2090,7 +2460,7 @@ a.project-link:hover {
   }
 
   .intro-video.visible {
-    opacity: 0.8;
+    opacity: 1;
   }
 
   .portfolio {
@@ -2098,5 +2468,70 @@ a.project-link:hover {
     min-height: 100vh;
     min-height: 100svh;
     overflow: hidden;
+  }
+}
+
+/* INTRO VIDEO QUALITY FIX */
+.intro-video {
+  filter: none;
+  image-rendering: auto;
+  backface-visibility: hidden;
+}
+
+.intro-video.visible {
+  opacity: 1;
+}
+
+.portfolio .scanlines.hidden {
+  opacity: 0 !important;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+/* SIGNATURE FONT */
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+
+/* HANDWRITTEN SIGNATURE */
+.welcome-content p.signature-name {
+  display: block;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 12px;
+  padding: 0 4px;
+
+  font-family: "Allura", cursive;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+
+  color: #f5d77e;
+  -webkit-text-fill-color: #f5d77e;
+  text-shadow: 0 0 8px rgb(245 215 126 / 25%);
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+
+  animation: signatureDraw 2s ease-out 1s forwards;
+}
+
+@keyframes signatureDraw {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: translateY(0);
   }
 }
