@@ -307,12 +307,14 @@ a:focus-visible {
 }
 
 /* Moving digital particles around the lettering */
+
+/* Moving digital particles around the lettering */
 .welcome-content h2.golden-name::after {
-  will-change: background-position, opacity;
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
+  will-change: background-position, opacity;
 
   background-image:
     radial-gradient(circle, #fff4be 0 1px, transparent 2px),
@@ -323,6 +325,7 @@ a:focus-visible {
     31px 27px,
     43px 37px,
     53px 41px;
+
   background-position:
     0 25px,
     20px 0,
@@ -331,56 +334,56 @@ a:focus-visible {
   opacity: 0;
   mix-blend-mode: screen;
   animation: cyberParticles 2.2s ease-out both;
+}
 
-  /* ONE-TIME GOLD LASER SCAN */
-  .welcome-content h2.golden-name {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-  }
+/* ONE-TIME GOLD LASER SCAN */
+.welcome-content h2.golden-name {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
 
-  .welcome-content h2.golden-name::before {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    bottom: 0;
+.welcome-content h2.golden-name::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: -35%;
+  width: 18%;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 244 190 / 20%),
+    #fff6c9,
+    rgb(228 199 124 / 65%),
+    transparent
+  );
+
+  filter: blur(2px);
+  transform: skewX(-18deg);
+  animation: goldenLaserScan 1.15s ease-in-out 1.1s 1 both;
+}
+
+@keyframes goldenLaserScan {
+  0% {
     left: -35%;
-    width: 18%;
-    pointer-events: none;
-
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgb(255 244 190 / 20%),
-      #fff6c9,
-      rgb(228 199 124 / 65%),
-      transparent
-    );
-
-    filter: blur(2px);
-    transform: skewX(-18deg);
-    animation: goldenLaserScan 1.15s ease-in-out 1.1s 1 both;
+    opacity: 0;
   }
 
-  @keyframes goldenLaserScan {
-    0% {
-      left: -35%;
-      opacity: 0;
-    }
+  15% {
+    opacity: 1;
+  }
 
-    15% {
-      opacity: 1;
-    }
+  85% {
+    opacity: 0.9;
+  }
 
-    85% {
-      opacity: 0.9;
-    }
-
-    100% {
-      left: 125%;
-      opacity: 0;
-    }
+  100% {
+    left: 125%;
+    opacity: 0;
   }
 }
 
