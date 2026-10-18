@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -26,6 +26,23 @@ export default function App() {
 
   const [entered, setEntered] = useState(false);
   const [page, setPage] = useState("intro");
+  const [booting, setBooting] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [page]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBooting(false);
+    }, 3300);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -90,6 +107,14 @@ export default function App() {
 
   function continueFromAbout() {
     setPage("projects");
+  }
+
+  function continueFromProjects() {
+    setPage("career");
+  }
+
+  function continueFromCareer() {
+    setPage("contact");
   }
 
   return (
@@ -165,8 +190,6 @@ export default function App() {
             <section className="welcome-content">
               <p className="eyebrow">WELCOME TO MY DIGITAL WORLD</p>
 
-              <h2 className="golden-name">HEMANTH VENKATA AYYANGAR</h2>
-
               <p className="signature-name">Hemanth Venkata Ayyangar</p>
 
               <p>Cybersecurity &amp; Cloud Security Enthusiast</p>
@@ -195,7 +218,7 @@ export default function App() {
             <a className="cyber-logo" href="#about">
               <ShieldCheck size={23} />
               <span>
-                HVA<span className="gold">.SEC</span>
+                HVA<span className="gold">.SECURITY</span>
               </span>
             </a>
 
@@ -211,7 +234,7 @@ export default function App() {
             <div className="about-copy">
               <div className="section-kicker">
                 <span className="kicker-line" />
-                IDENTITY // PROFILE_001
+                PERSONAL PROFILE
               </div>
 
               <h1 className="about-heading">
@@ -220,7 +243,9 @@ export default function App() {
                 THE <span className="gold-text">SCREEN.</span>
               </h1>
 
-              <p className="about-lead">Hemanth Venkata Ayyangar</p>
+              <p className="about-lead">
+                Hi I'm Hemanth Venkata Ayyangar Narayanam
+              </p>
 
               <p className="about-role">
                 COMPUTER SCIENCE ENGINEERING STUDENT
@@ -356,7 +381,7 @@ export default function App() {
             >
               <ShieldCheck size={23} />
               <span>
-                HVA<span className="gold">.SEC</span>
+                HVA<span className="gold">.SECURITY</span>
               </span>
             </a>
 
@@ -371,7 +396,7 @@ export default function App() {
           <div className="projects-content" id="projects">
             <div className="section-kicker">
               <span className="kicker-line" />
-              SELECTED WORK // PROJECTS_002
+              PROJECTS
             </div>
 
             <h1 className="projects-heading">
@@ -512,7 +537,7 @@ export default function App() {
             >
               <ShieldCheck size={23} />
               <span>
-                HVA<span className="gold">.SEC</span>
+                HVA<span className="gold">.SECURITY</span>
               </span>
             </a>
 
@@ -527,7 +552,7 @@ export default function App() {
           <div className="career-content" id="career">
             <div className="section-kicker">
               <span className="kicker-line" />
-              PROFESSIONAL JOURNEY // PROFILE_003
+              PROFESSIONAL JOURNEY
             </div>
 
             <h1 className="career-heading">
@@ -671,7 +696,7 @@ export default function App() {
             >
               <ShieldCheck size={23} />
               <span>
-                HVA<span className="gold">.SEC</span>
+                HVA<span className="gold">.SECURITY</span>
               </span>
             </a>
 
@@ -686,7 +711,7 @@ export default function App() {
           <div className="contact-content" id="contact">
             <div className="section-kicker">
               <span className="kicker-line" />
-              ESTABLISH CONNECTION // CONTACT_003
+              ESTABLISH CONNECTION
             </div>
 
             <h1 className="contact-heading">
