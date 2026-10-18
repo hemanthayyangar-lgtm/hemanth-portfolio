@@ -69,7 +69,7 @@ export default function App() {
 
     if (video) {
       video.currentTime = 0;
-      video.playbackRate = 0.855;
+      video.playbackRate = 0.7;
       try {
         await video.play();
       } catch {
@@ -106,7 +106,7 @@ export default function App() {
           <video
             ref={videoRef}
             className={`intro-video ${entered ? "visible" : ""}`}
-            src={`${import.meta.env.BASE_URL}videos/intro%202.mp4`}
+            src={`${import.meta.env.BASE_URL}videos/intro%2.mp4`}
             muted
             playsInline
             webkit-playsinline="true"
